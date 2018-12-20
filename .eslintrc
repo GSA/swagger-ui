@@ -38,3 +38,4 @@ rules:
   import/no-extraneous-dependencies: 2
   react/jsx-filename-extension: 2
   jsx-a11y/label-has-for: off
+  jsx-a11y/label-has-associated-control: [ 2, controlComponents: ["ContentType"]]
