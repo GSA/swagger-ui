@@ -62,7 +62,7 @@ export default class OperationSummary extends PureComponent {
         <OperationSummaryPath getComponent={getComponent} operationProps={operationProps} specPath={specPath} />
 
         {!showSummary ? null :
-          <div className="opblock-summary-description">
+          <div className="opblock-summary-description" aria-label="Operation Description">
             {resolvedSummary || summary}
           </div>
         }
