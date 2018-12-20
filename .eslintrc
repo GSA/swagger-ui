@@ -9,10 +9,12 @@ parserOptions:
 extends:
   - eslint:recommended
   - plugin:react/recommended
+  - plugin:jsx-a11y/recommended 
 plugins:
   - react
   - mocha
   - import
+  - jsx-a11y
 settings:
   react:
     pragma: React
@@ -35,3 +37,4 @@ rules:
   mocha/no-exclusive-tests: 2
   import/no-extraneous-dependencies: 2
   react/jsx-filename-extension: 2
+  jsx-a11y/label-has-for: off
