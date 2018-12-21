@@ -71,8 +71,8 @@ export default class ModelCollapse extends Component {
 
     return (
       <span className={classes || ""}>
-        { title && <span role="button" aria-label="Show or hide model" tabIndex={0} onKeyDown={this.toggleCollapsed} onClick={this.toggleCollapsed} style={{ "cursor": "pointer" }}>{title}</span> }
-        <span role="button" tabIndex={0} onKeyDown={this.toggleCollapsed}onClick={ this.toggleCollapsed } style={{ "cursor": "pointer" }}>
+        { title && <span role="button" tabIndex={0} onKeyDown={this.toggleCollapsed} onClick={this.toggleCollapsed} style={{ "cursor": "pointer" }}>{title}</span> }
+        <span role="button" aria-label="Show or hide model" tabIndex={0} onKeyDown={this.toggleCollapsed}onClick={ this.toggleCollapsed } style={{ "cursor": "pointer" }}>
           <span className={ "model-toggle" + ( this.state.expanded ? "" : " collapsed" ) }></span>
         </span>
         { this.state.expanded ? this.props.children :this.state.collapsedContent }
