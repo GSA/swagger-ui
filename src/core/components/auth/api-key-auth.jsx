@@ -67,11 +67,12 @@ export default class ApiKeyAuth extends React.Component {
           <p>In: <code>{ schema.get("in") }</code></p>
         </Row>
         <Row>
-          <label>Value:</label>
+          <label>Value:
           {
             value ? <code> ****** </code>
                   : <Col><Input type="text" onChange={ this.onChange }/></Col>
           }
+          </label>
         </Row>
         {
           errors.valueSeq().map( (error, key) => {
