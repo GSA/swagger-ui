@@ -118,7 +118,7 @@ export default class ResponseBody extends React.PureComponent {
       if(contentType.includes("svg")) {
         bodyEl = <div> { content } </div>
       } else {
-        bodyEl = <img style={{ maxWidth: "100%" }} src={ window.URL.createObjectURL(content) } />
+        bodyEl = <img alt = "Image from response body" style={{ maxWidth: "100%" }} src={ window.URL.createObjectURL(content) } />
       }
 
       // Audio
