@@ -26,7 +26,7 @@ export default class Schemes extends React.Component {
     }
   }
 
-  onChange =( e ) => {
+  onBlur =( e ) => {
     this.setScheme( e.target.value )
   }
 
