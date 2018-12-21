@@ -108,7 +108,7 @@ export default class Responses extends React.Component {
 
           <table className="responses-table">
             <thead>
-              <tr className="responses-header" role="table">
+              <tr className="responses-header">
                 <th className="col col_header response-col_status">Code</th>
                 <th className="col col_header response-col_description">Description</th>
                 { specSelectors.isOAS3() ? <th className="col col_header response-col_links">Links</th> : null }
