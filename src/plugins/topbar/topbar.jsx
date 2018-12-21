@@ -125,7 +125,7 @@ export default class Topbar extends React.Component {
     }
     else {
       formOnSubmit = this.downloadUrl
-      control.push(<input className="download-url-input" type="text" onBlur={ this.onUrlChange } value={this.state.url} disabled={isLoading} style={inputStyle} />)
+      control.push(<input aria-label="File download URL"className="download-url-input" type="text" onBlur={ this.onUrlChange } value={this.state.url} disabled={isLoading} style={inputStyle} />)
       control.push(<Button className="download-url-button" onClick={ this.downloadUrl }>Explore</Button>)
     }
 
