@@ -26,7 +26,7 @@ export default class Schemes extends React.Component {
     }
   }
 
-  onChange =( e ) => {
+  onBlur =( e ) => {
     this.setScheme( e.target.value )
   }
 
@@ -42,7 +42,7 @@ export default class Schemes extends React.Component {
     return (
       <label htmlFor="schemes">
         <span className="schemes-title">Schemes</span>
-        <select onChange={ this.onChange } value={currentScheme}>
+        <select onBlur={ this.onBlur } value={currentScheme}>
           { schemes.valueSeq().map(
             ( scheme ) => <option value={ scheme } key={ scheme }>{ scheme }</option>
           ).toArray()}

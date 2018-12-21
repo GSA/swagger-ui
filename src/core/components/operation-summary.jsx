@@ -57,12 +57,12 @@ export default class OperationSummary extends PureComponent {
 
     return (
 
-      <div className={`opblock-summary opblock-summary-${method}`} onClick={toggleShown} >
+      <div className={`opblock-summary opblock-summary-${method}`} onClick={toggleShown} onKeyDown={toggleShown} role="button" tabIndex={0}>
         <OperationSummaryMethod method={method} />
         <OperationSummaryPath getComponent={getComponent} operationProps={operationProps} specPath={specPath} />
 
         {!showSummary ? null :
-          <div className="opblock-summary-description">
+          <div className="opblock-summary-description" aria-label="Operation Description">
             {resolvedSummary || summary}
           </div>
         }

@@ -63,14 +63,15 @@ export default class BasicAuth extends React.Component {
           <Markdown source={ schema.get("description") } />
         </Row>
         <Row>
-          <label>Username:</label>
+          <label>Username:
           {
             username ? <code> { username } </code>
                      : <Col><Input type="text" required="required" name="username" onChange={ this.onChange }/></Col>
           }
+          </label>
         </Row>
         <Row>
-          <label>Password:</label>
+          <label>Password:
             {
               username ? <code> ****** </code>
                        : <Col><Input required="required"
@@ -79,6 +80,7 @@ export default class BasicAuth extends React.Component {
                                      type="password"
                                      onChange={ this.onChange }/></Col>
             }
+            </label>
         </Row>
         {
           errors.valueSeq().map( (error, key) => {

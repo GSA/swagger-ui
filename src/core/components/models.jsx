@@ -45,11 +45,12 @@ export default class Models extends Component {
     const JumpToPath = getComponent("JumpToPath")
 
     return <section className={ showModels ? "models is-open" : "models"}>
-      <h4 onClick={() => layoutActions.show("models", !showModels)}>
+      <h4><div role="button" tabIndex={0} onKeyDown={() => layoutActions.show("models", !showModels)} onClick={() => layoutActions.show("models", !showModels)}>
         <span>{isOAS3 ? "Schemas" : "Models" }</span>
-        <svg width="20" height="20">
+        <svg width="20" height="20" alt="Arrow">
           <use xlinkHref={showModels ? "#large-arrow-down" : "#large-arrow"} />
         </svg>
+        </div>
       </h4>
       <Collapse isOpened={showModels}>
         {
