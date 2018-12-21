@@ -129,7 +129,7 @@ export class Select extends React.Component {
   static propTypes = {
     allowedValues: PropTypes.array,
     value: PropTypes.any,
-    onChange: PropTypes.func,
+    onBlur: PropTypes.func,
     multiple: PropTypes.bool,
     allowEmptyValue: PropTypes.bool,
     className: PropTypes.string
@@ -154,8 +154,8 @@ export class Select extends React.Component {
     this.state = { value: value }
   }
 
-  onChange = (e) => {
-    let { onChange, multiple } = this.props
+  onBlur = (e) => {
+    let { onBlur, multiple } = this.props
     let options = [].slice.call(e.target.options)
     let value
 
@@ -173,7 +173,7 @@ export class Select extends React.Component {
 
     this.setState({value: value})
 
-    onChange && onChange(value)
+    onBlur && onBlur(value)
   }
 
   render(){
@@ -181,7 +181,7 @@ export class Select extends React.Component {
     let value = this.state.value.toJS ? this.state.value.toJS() : this.state.value
 
     return (
-      <select className={this.props.className} multiple={ multiple } value={ value } onChange={ this.onChange } >
+      <select className={this.props.className} multiple={ multiple } value={ value } onBlur={ this.onBlur } >
         { allowEmptyValue ? <option value="">--</option> : null }
         {
           allowedValues.map(function (item, key) {
