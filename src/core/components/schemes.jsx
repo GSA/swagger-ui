@@ -40,7 +40,7 @@ export default class Schemes extends React.Component {
     let { schemes, currentScheme } = this.props
 
     return (
-      <label htmlFor="schemes">
+      <label>
         <span className="schemes-title">Schemes</span>
         <select onBlur={ this.onBlur } value={currentScheme}>
           { schemes.valueSeq().map(

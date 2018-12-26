@@ -63,14 +63,14 @@ export default class BaseLayout extends React.Component {
           <VersionPragmaFilter isSwagger2={isSwagger2} isOAS3={isOAS3} alsoShow={<Errors/>}>
             <Errors/>
             <Row className="information-container">
-              <Col mobile={12}>
+              <Col mobile={12} aria-label="Information container">
                 <InfoContainer/>
               </Col>
             </Row>
 
             {hasServers || hasSchemes || hasSecurityDefinitions ? (
               <div className="scheme-container">
-                <Col className="schemes wrapper" mobile={12}>
+                <Col className="schemes wrapper" mobile={12} aria-label="Schemes container">
                   {hasServers ? (<ServersContainer />) : null}
                   {hasSchemes ? (<SchemesContainer />) : null}
                   {hasSecurityDefinitions ? (<AuthorizeBtnContainer />) : null}
@@ -81,12 +81,12 @@ export default class BaseLayout extends React.Component {
             <FilterContainer/>
 
             <Row>
-              <Col mobile={12} desktop={12} >
+              <Col mobile={12} desktop={12} aria-label="Operations container">
                 <Operations/>
               </Col>
             </Row>
             <Row>
-              <Col mobile={12} desktop={12} >
+              <Col mobile={12} desktop={12} aria-label="Models container">
                 <Models/>
               </Col>
             </Row>
