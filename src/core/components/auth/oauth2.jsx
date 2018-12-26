@@ -204,12 +204,12 @@ export default class Oauth2 extends React.Component {
             { scopes.map((description, name) => {
               return (
                 <Row key={ name }>
-                  <div className="checkbox">
+                  <div className="checkboxBOB">
                     <Input data-value={ name }
                           id={`${name}-${flow}-checkbox-${this.state.name}`}
                            disabled={ isAuthorized }
                            type="checkbox"
-                           onChange={ this.onScopeChange }/>
+                           onChange={ this.onScopeChange } tabindex={0}/>
                          <label htmlFor={`${name}-${flow}-checkbox-${this.state.name}`}>
                            <span className="item"></span>
                            <div className="text">
