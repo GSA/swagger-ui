@@ -58,7 +58,7 @@ export default class OperationTag extends React.Component {
     return (
       <div className={showTag ? "opblock-tag-section is-open" : "opblock-tag-section"} >
 
-        <h4><div role="button"
+        <h2><div role="button"
           tabIndex={0}
           onKeyDown={() => layoutActions.show(isShownKey, !showTag)}
           onClick={() => layoutActions.show(isShownKey, !showTag)}
@@ -101,7 +101,7 @@ export default class OperationTag extends React.Component {
               </svg>
             </button>
             </div>
-        </h4>
+        </h2 >
 
         <Collapse isOpened={showTag}>
           {children}

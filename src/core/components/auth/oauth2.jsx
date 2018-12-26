@@ -133,7 +133,7 @@ export default class Oauth2 extends React.Component {
                 {
                   isAuthorized ? <code> { this.state.username } </code>
                     : <Col tablet={10} desktop={10}>
-                      <input id="oauth_username" type="text" data-name="username" onChange={ this.onInputChange }/>
+                      <input id="oauth_username" type="text" data-name="username" onBlur={ this.onInputChange }/>
                     </Col>
                 }
               </Row>
@@ -154,7 +154,7 @@ export default class Oauth2 extends React.Component {
                 {
                   isAuthorized ? <code> { this.state.passwordType } </code>
                     : <Col tablet={10} desktop={10}>
-                      <select id="password_type" data-name="passwordType" onChange={ this.onInputChange }>
+                      <select id="password_type" data-name="passwordType" onBlur={ this.onInputChange }>
                         <option value="basic">Authorization header</option>
                         <option value="request-body">Request body</option>
                       </select>
@@ -204,12 +204,12 @@ export default class Oauth2 extends React.Component {
             { scopes.map((description, name) => {
               return (
                 <Row key={ name }>
-                  <div className="checkbox">
+                  <div className="checkboxBOB">
                     <Input data-value={ name }
                           id={`${name}-${flow}-checkbox-${this.state.name}`}
                            disabled={ isAuthorized }
                            type="checkbox"
-                           onChange={ this.onScopeChange }/>
+                           onChange={ this.onScopeChange } tabindex={0}/>
                          <label htmlFor={`${name}-${flow}-checkbox-${this.state.name}`}>
                            <span className="item"></span>
                            <div className="text">
