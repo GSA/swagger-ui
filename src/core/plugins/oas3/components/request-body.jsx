@@ -92,7 +92,7 @@ const RequestBody = ({
                 <td className="col parameters-col_name">
                         <div className={required ? "parameter__name required" : "parameter__name"}>
                           { key }
-                          { !required ? null : <span style={{color: "red"}}>&nbsp;*</span> }
+                          { !required ? null : <span style={{color: "#DB0000"}}>&nbsp;*</span> }
                         </div>
                         <div className="parameter__type">
                           { type }
