@@ -133,7 +133,7 @@ export default class Oauth2 extends React.Component {
                 {
                   isAuthorized ? <code> { this.state.username } </code>
                     : <Col tablet={10} desktop={10}>
-                      <input id="oauth_username" type="text" data-name="username" onChange={ this.onInputChange }/>
+                      <input id="oauth_username" type="text" data-name="username" onBlur={ this.onInputChange }/>
                     </Col>
                 }
               </Row>
@@ -154,7 +154,7 @@ export default class Oauth2 extends React.Component {
                 {
                   isAuthorized ? <code> { this.state.passwordType } </code>
                     : <Col tablet={10} desktop={10}>
-                      <select id="password_type" data-name="passwordType" onChange={ this.onInputChange }>
+                      <select id="password_type" data-name="passwordType" onBlur={ this.onInputChange }>
                         <option value="basic">Authorization header</option>
                         <option value="request-body">Request body</option>
                       </select>

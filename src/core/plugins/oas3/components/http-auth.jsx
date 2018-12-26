@@ -71,14 +71,14 @@ export default class HttpAuth extends React.Component {
           <Markdown source={ schema.get("description") } />
         </Row>
         <Row>
-          <label>Username:</label>
+          <label>Username:
           {
             username ? <code> { username } </code>
                      : <Col><Input type="text" required="required" name="username" onChange={ this.onChange }/></Col>
-          }
+          }</label>
         </Row>
         <Row>
-          <label>Password:</label>
+          <label>Password:
             {
               username ? <code> ****** </code>
                        : <Col><Input required="required"
@@ -86,7 +86,7 @@ export default class HttpAuth extends React.Component {
                                      name="password"
                                      type="password"
                                      onChange={ this.onChange }/></Col>
-            }
+            }</label>
         </Row>
         {
           errors.valueSeq().map( (error, key) => {
@@ -110,11 +110,11 @@ export default class HttpAuth extends React.Component {
               <Markdown source={ schema.get("description") } />
             </Row>
             <Row>
-              <label>Value:</label>
+              <label>Value:
               {
                 value ? <code> ****** </code>
               : <Col><Input type="text" onChange={ this.onChange }/></Col>
-          }
+          }</label>
         </Row>
         {
           errors.valueSeq().map( (error, key) => {
