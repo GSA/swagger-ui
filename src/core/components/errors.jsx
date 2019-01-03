@@ -76,7 +76,9 @@ const ThrownErrorItem = ( { error, jumpToLine } ) => {
             { error.get("message") }
           </span>
           <div style={{ "text-decoration": "underline", "cursor": "pointer" }}>
-            { errorLine && jumpToLine ? <a role="link" tabIndex={0} onKeyDown={jumpToLine.bind(null, errorLine)} onClick={jumpToLine.bind(null, errorLine)}>Jump to line { errorLine }</a> : null }
+            { errorLine && jumpToLine ? <a role="link" tabIndex={0} 
+            onKeyDown={(event) => {event.keyCode === 13 ? jumpToLine.bind(null, errorLine) : null }}
+            onClick={jumpToLine.bind(null, errorLine)}>Jump to line { errorLine }</a> : null }
           </div>
         </div>
       }
@@ -105,7 +107,11 @@ const SpecErrorItem = ( { error, jumpToLine } ) => {
           <span style={{ whiteSpace: "pre-line"}}>{ error.get("message") }</span>
           <div style={{ "text-decoration": "underline", "cursor": "pointer" }}>
             { jumpToLine ? (
-              <a role="link" tabIndex={0} onKeyDown={jumpToLine.bind(null, error.get("line"))} onClick={jumpToLine.bind(null, error.get("line"))}>Jump to line { error.get("line") }</a>
+              <a role="link" tabIndex={0} 
+              onKeyDown={(event) => {event.keyCode === 13 ? jumpToLine.bind(null, error.get("line")) : null }} 
+              onClick={jumpToLine.bind(null, error.get("line"))}
+              >Jump to line { error.get("line") }</a>
+
             ) : null }
           </div>
         </div>

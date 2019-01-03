@@ -53,7 +53,7 @@ export default class HighlightCode extends Component {
     return (
       <div className="highlight-code">
         { !downloadable ? null :
-          <div className="download-contents" onClick={this.downloadText} role="button" tabIndex={0} onKeyDown={this.downloadText} >
+          <div className="download-contents" onClick={this.downloadText} role="button" tabIndex={0} onKeyDown={(event) => {event.keyCode === 13 ? this.downloadText: null }} >
             Download
           </div>
         }

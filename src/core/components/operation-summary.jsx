@@ -22,6 +22,9 @@ export default class OperationSummary extends PureComponent {
     summary: ""
   }
 
+
+
+
   render() {
 
     let {
@@ -57,7 +60,7 @@ export default class OperationSummary extends PureComponent {
 
     return (
 
-      <div className={`opblock-summary opblock-summary-${method}`} onClick={toggleShown} onKeyDown={toggleShown} role="button" tabIndex={0}>
+      <div className={`opblock-summary opblock-summary-${method}`} onClick={toggleShown} onKeyDown={(event) => {event.keyCode === 13 ? toggleShown() : null }} role="button" tabIndex={0}>
         <OperationSummaryMethod method={method} />
         <OperationSummaryPath getComponent={getComponent} operationProps={operationProps} specPath={specPath} />
 
