@@ -1,0 +1,253 @@
+
+> swagger-ui@3.20.2 lint /Users/ryan/Code/src/github/Ryandaydev/swagger-ui
+> eslint --cache --ext '.js,.jsx' src test
+
+
+/Users/ryan/Code/src/github/Ryandaydev/swagger-ui/src/core/components/deep-link.jsx
+  7:11  warning  JSX props should not use arrow functions  react/jsx-no-bind
+
+/Users/ryan/Code/src/github/Ryandaydev/swagger-ui/src/core/components/errors.jsx
+   79:41   error    Anchor used as a button. Anchors are primarily expected to navigate. Use the button element instead. Learn more: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-is-valid.md  jsx-a11y/anchor-is-valid
+   79:69   warning  JSX props should not use .bind()                                                                                                                                                                              react/jsx-no-bind
+   79:114  warning  JSX props should not use .bind()                                                                                                                                                                              react/jsx-no-bind
+  108:15   error    Anchor used as a button. Anchors are primarily expected to navigate. Use the button element instead. Learn more: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-is-valid.md  jsx-a11y/anchor-is-valid
+  108:43   warning  JSX props should not use .bind()                                                                                                                                                                              react/jsx-no-bind
+  108:96   warning  JSX props should not use .bind()                                                                                                                                                                              react/jsx-no-bind
+
+/Users/ryan/Code/src/github/Ryandaydev/swagger-ui/src/core/components/layout-utils.jsx
+  176:5   warning  Expected an assignment or function call and instead saw an expression            no-unused-expressions
+  199:12  error    Anchors must have content and the content must be accessible by a screen reader  jsx-a11y/anchor-has-content
+
+/Users/ryan/Code/src/github/Ryandaydev/swagger-ui/src/core/components/models.jsx
+  48:43   warning  JSX props should not use arrow functions  react/jsx-no-bind
+  48:103  warning  JSX props should not use arrow functions  react/jsx-no-bind
+
+/Users/ryan/Code/src/github/Ryandaydev/swagger-ui/src/core/components/operation-summary.jsx
+  76:15  warning  JSX props should not use arrow functions  react/jsx-no-bind
+
+/Users/ryan/Code/src/github/Ryandaydev/swagger-ui/src/core/components/operation-tag.jsx
+  63:11  warning  JSX props should not use arrow functions  react/jsx-no-bind
+  64:11  warning  JSX props should not use arrow functions  react/jsx-no-bind
+  86:29  warning  JSX props should not use arrow functions  react/jsx-no-bind
+  97:15  warning  JSX props should not use arrow functions  react/jsx-no-bind
+
+/Users/ryan/Code/src/github/Ryandaydev/swagger-ui/src/core/components/parameter-include-empty.jsx
+  16:86  warning  JSX props should not use arrow functions  react/jsx-no-bind
+
+/Users/ryan/Code/src/github/Ryandaydev/swagger-ui/src/core/components/response-body.jsx
+   85:44  warning  JSX props should not use arrow functions                                                                                                                                                         react/jsx-no-bind
+  121:18  error    Redundant alt attribute. Screen-readers already announce `img` tags as an image. You don’t need to use the words `image`, `photo,` or `picture` (or any specified custom words) in the alt prop  jsx-a11y/img-redundant-alt
+  126:21  error    Media elements such as <audio> and <video> must have a <track> for captions                                                                                                                      jsx-a11y/media-has-caption
+
+/Users/ryan/Code/src/github/Ryandaydev/swagger-ui/src/core/containers/authorize-btn.jsx
+  24:9  warning  JSX props should not use arrow functions  react/jsx-no-bind
+
+/Users/ryan/Code/src/github/Ryandaydev/swagger-ui/src/core/json-schema-components.jsx
+   59:14  warning  Identifier 'JsonSchema_string' is not in camel case   camelcase
+  107:14  warning  Identifier 'JsonSchema_array' is not in camel case    camelcase
+  186:80  warning  JSX props should not use arrow functions              react/jsx-no-bind
+  187:75  warning  JSX props should not use arrow functions              react/jsx-no-bind
+  198:14  warning  Identifier 'JsonSchema_boolean' is not in camel case  camelcase
+  218:14  warning  Identifier 'JsonSchema_object' is not in camel case   camelcase
+
+/Users/ryan/Code/src/github/Ryandaydev/swagger-ui/src/core/plugins/auth/actions.js
+   76:5   warning  Identifier 'grant_type' is not in camel case     camelcase
+  101:28  warning  Identifier 'client_id' is not in camel case      camelcase
+  105:28  warning  Identifier 'client_secret' is not in camel case  camelcase
+  115:5   warning  Identifier 'grant_type' is not in camel case     camelcase
+  125:5   warning  Identifier 'grant_type' is not in camel case     camelcase
+  127:5   warning  Identifier 'client_id' is not in camel case      camelcase
+  128:5   warning  Identifier 'client_secret' is not in camel case  camelcase
+  129:5   warning  Identifier 'redirect_uri' is not in camel case   camelcase
+  141:5   warning  Identifier 'grant_type' is not in camel case     camelcase
+  143:5   warning  Identifier 'client_id' is not in camel case      camelcase
+  144:5   warning  Identifier 'redirect_uri' is not in camel case   camelcase
+
+/Users/ryan/Code/src/github/Ryandaydev/swagger-ui/src/core/plugins/oas3/components/request-body-editor.jsx
+  126:43  warning  JSX props should not use arrow functions  react/jsx-no-bind
+
+/Users/ryan/Code/src/github/Ryandaydev/swagger-ui/src/core/plugins/oas3/components/request-body.jsx
+   55:33  warning  JSX props should not use arrow functions  react/jsx-no-bind
+  115:27  warning  JSX props should not use arrow functions  react/jsx-no-bind
+
+/Users/ryan/Code/src/github/Ryandaydev/swagger-ui/src/core/plugins/oas3/wrap-components/index.js
+   7:8  warning  Identifier 'JsonSchema_string' is not in camel case  camelcase
+  13:3  warning  Identifier 'JsonSchema_string' is not in camel case  camelcase
+  13:3  warning  Identifier 'JsonSchema_string' is not in camel case  camelcase
+
+/Users/ryan/Code/src/github/Ryandaydev/swagger-ui/src/core/plugins/oas3/wrap-components/json-schema-string.jsx
+  19:20  warning  JSX props should not use arrow functions  react/jsx-no-bind
+
+/Users/ryan/Code/src/github/Ryandaydev/swagger-ui/src/core/plugins/oas3/wrap-components/parameters.jsx
+  117:45   warning  JSX props should not use arrow functions  react/jsx-no-bind
+  117:158  warning  Multiple spaces found before 'onKeyDown'  no-multi-spaces
+  122:49   warning  JSX props should not use arrow functions  react/jsx-no-bind
+  122:159  warning  Multiple spaces found before 'onKeyDown'  no-multi-spaces
+  181:19   warning  JSX props should not use arrow functions  react/jsx-no-bind
+  193:17   warning  JSX props should not use arrow functions  react/jsx-no-bind
+
+/Users/ryan/Code/src/github/Ryandaydev/swagger-ui/test/components/json-schema-form.jsx
+  4:18  warning  'createSpy' is defined but never used  no-unused-vars
+
+/Users/ryan/Code/src/github/Ryandaydev/swagger-ui/test/components/model-example.jsx
+  3:18  warning  'createSpy' is defined but never used  no-unused-vars
+
+/Users/ryan/Code/src/github/Ryandaydev/swagger-ui/test/components/object-model.jsx
+   4:10  warning  'fromJS' is defined but never used        no-unused-vars
+   6:8   warning  'ModelExample' is defined but never used  no-unused-vars
+  10:10  warning  'inferSchema' is defined but never used   no-unused-vars
+
+/Users/ryan/Code/src/github/Ryandaydev/swagger-ui/test/components/online-validator-badge.jsx
+  3:18  warning  'createSpy' is defined but never used  no-unused-vars
+  5:10  warning  'fromJS' is defined but never used     no-unused-vars
+  5:18  warning  'Map' is defined but never used        no-unused-vars
+
+/Users/ryan/Code/src/github/Ryandaydev/swagger-ui/test/components/operations.jsx
+  13:26  warning  'path' is missing in props validation    react/prop-types
+  13:32  warning  'method' is missing in props validation  react/prop-types
+
+/Users/ryan/Code/src/github/Ryandaydev/swagger-ui/test/components/response-body.jsx
+  5:10  warning  'inferSchema' is defined but never used  no-unused-vars
+
+/Users/ryan/Code/src/github/Ryandaydev/swagger-ui/test/components/schemes-wrapper.jsx
+   5:17  warning  'render' is defined but never used                           no-unused-vars
+  29:9   warning  'twoSecurityDefinitions' is assigned a value but never used  no-unused-vars
+
+/Users/ryan/Code/src/github/Ryandaydev/swagger-ui/test/components/version-pragma-filter.jsx
+  3:18  warning  'createSpy' is defined but never used  no-unused-vars
+  5:10  warning  'fromJS' is defined but never used     no-unused-vars
+  5:18  warning  'Map' is defined but never used        no-unused-vars
+
+/Users/ryan/Code/src/github/Ryandaydev/swagger-ui/test/core/oauth2-authorize.js
+  3:10  warning  'fromJS' is defined but never used  no-unused-vars
+
+/Users/ryan/Code/src/github/Ryandaydev/swagger-ui/test/core/plugins/auth/selectors.js
+  116:13  warning  'securityDefinitions' is assigned a value but never used  no-unused-vars
+
+/Users/ryan/Code/src/github/Ryandaydev/swagger-ui/test/core/plugins/oas3/wrap-auth-selectors.js
+  2:18  warning  'createSpy' is defined but never used  no-unused-vars
+  3:10  warning  'Map' is defined but never used        no-unused-vars
+
+/Users/ryan/Code/src/github/Ryandaydev/swagger-ui/test/core/plugins/spec/actions.js
+  127:11  warning  'res' is assigned a value but never used  no-unused-vars
+
+/Users/ryan/Code/src/github/Ryandaydev/swagger-ui/test/core/plugins/spec/selectors.js
+  396:23  warning  Identifier 'petstore_auth' is not in camel case  camelcase
+
+/Users/ryan/Code/src/github/Ryandaydev/swagger-ui/test/core/system/system.jsx
+    9:10  warning  'connect' is defined but never used                no-unused-vars
+  360:33  warning  'system' is defined but never used                 no-unused-vars
+  371:36  warning  'system' is defined but never used                 no-unused-vars
+  397:33  warning  'system' is defined but never used                 no-unused-vars
+  438:33  warning  'system' is defined but never used                 no-unused-vars
+  449:32  warning  'system' is defined but never used                 no-unused-vars
+  475:24  warning  'name' is missing in props validation              react/prop-types
+  490:36  warning  'props' is defined but never used                  no-unused-vars
+  501:19  warning  'exampleSelectors' is missing in props validation  react/prop-types
+  501:37  warning  'fromMapState' is missing in props validation      react/prop-types
+  501:51  warning  'fromOwnProps' is missing in props validation      react/prop-types
+  543:37  warning  'fromMapState' is assigned a value but never used  no-unused-vars
+  554:19  warning  'fromMapState' is missing in props validation      react/prop-types
+  605:31  warning  'system' is defined but never used                 no-unused-vars
+  628:27  warning  'system' is defined but never used                 no-unused-vars
+  655:27  warning  'system' is defined but never used                 no-unused-vars
+  684:27  warning  'system' is defined but never used                 no-unused-vars
+  718:31  warning  'system' is defined but never used                 no-unused-vars
+  738:19  warning  'system' is defined but never used                 no-unused-vars
+  744:27  warning  'system' is defined but never used                 no-unused-vars
+  804:39  warning  'action' is defined but never used                 no-unused-vars
+  827:31  warning  'arg1' is defined but never used                   no-unused-vars
+  848:31  warning  'arg1' is defined but never used                   no-unused-vars
+  848:40  warning  'system' is defined but never used                 no-unused-vars
+  877:24  warning  'ori' is defined but never used                    no-unused-vars
+  877:36  warning  'args' is defined but never used                   no-unused-vars
+  898:31  warning  'arg1' is defined but never used                   no-unused-vars
+
+/Users/ryan/Code/src/github/Ryandaydev/swagger-ui/test/core/system/wrapComponent.jsx
+  14:23  warning  'name' is missing in props validation  react/prop-types
+  46:35  warning  'name' is missing in props validation  react/prop-types
+
+/Users/ryan/Code/src/github/Ryandaydev/swagger-ui/test/core/utils.js
+     3:23  warning  'OrderedMap' is defined but never used          no-unused-vars
+  1125:13  warning  'result' is assigned a value but never used     no-unused-vars
+  1216:7   warning  Read-only global 'Date' should not be modified  no-global-assign
+  1224:7   warning  Read-only global 'Date' should not be modified  no-global-assign
+
+/Users/ryan/Code/src/github/Ryandaydev/swagger-ui/test/e2e-cypress/helpers/oauth2-server/model.js
+  24:5  warning  'dump' is assigned a value but never used  no-unused-vars
+
+/Users/ryan/Code/src/github/Ryandaydev/swagger-ui/test/e2e-cypress/plugins/index.js
+  15:23  warning  'config' is defined but never used  no-unused-vars
+
+/Users/ryan/Code/src/github/Ryandaydev/swagger-ui/test/e2e-cypress/tests/bugs/4838.js
+  1:8  warning  'repeat' is defined but never used  no-unused-vars
+
+/Users/ryan/Code/src/github/Ryandaydev/swagger-ui/test/e2e-cypress/tests/bugs/5043.js
+  1:8  warning  'repeat' is defined but never used  no-unused-vars
+
+/Users/ryan/Code/src/github/Ryandaydev/swagger-ui/test/e2e-cypress/tests/bugs/editor-1868.js
+  1:8  warning  'repeat' is defined but never used  no-unused-vars
+
+/Users/ryan/Code/src/github/Ryandaydev/swagger-ui/test/e2e-selenium/scenarios/bugs/4196.js
+  2:9  warning  'mainPage' is assigned a value but never used  no-unused-vars
+
+/Users/ryan/Code/src/github/Ryandaydev/swagger-ui/test/e2e-selenium/scenarios/bugs/4374.js
+  2:9  warning  'mainPage' is assigned a value but never used  no-unused-vars
+
+/Users/ryan/Code/src/github/Ryandaydev/swagger-ui/test/e2e-selenium/scenarios/bugs/4409.js
+  2:9  warning  'mainPage' is assigned a value but never used  no-unused-vars
+
+/Users/ryan/Code/src/github/Ryandaydev/swagger-ui/test/e2e-selenium/scenarios/bugs/4445.js
+  2:9  warning  'mainPage' is assigned a value but never used  no-unused-vars
+
+/Users/ryan/Code/src/github/Ryandaydev/swagger-ui/test/e2e-selenium/scenarios/bugs/4485.js
+  2:9  warning  'mainPage' is assigned a value but never used  no-unused-vars
+
+/Users/ryan/Code/src/github/Ryandaydev/swagger-ui/test/e2e-selenium/scenarios/bugs/4536.js
+  2:9  warning  'mainPage' is assigned a value but never used  no-unused-vars
+
+/Users/ryan/Code/src/github/Ryandaydev/swagger-ui/test/e2e-selenium/scenarios/bugs/4587.js
+  2:7  warning  'mainPage' is assigned a value but never used  no-unused-vars
+
+/Users/ryan/Code/src/github/Ryandaydev/swagger-ui/test/e2e-selenium/scenarios/bugs/4756.js
+  2:7  warning  'mainPage' is assigned a value but never used  no-unused-vars
+
+/Users/ryan/Code/src/github/Ryandaydev/swagger-ui/test/e2e-selenium/scenarios/bugs/frozen-array-input.js
+  2:7  warning  'mainPage' is assigned a value but never used  no-unused-vars
+
+/Users/ryan/Code/src/github/Ryandaydev/swagger-ui/test/e2e-selenium/scenarios/on-complete.js
+   4:7   warning  'mainPage' is assigned a value but never used  no-unused-vars
+  20:81  warning  'done' is defined but never used               no-unused-vars
+
+/Users/ryan/Code/src/github/Ryandaydev/swagger-ui/test/e2e-selenium/scenarios/operations/pet.js
+  28:9  warning  Expected an assignment or function call and instead saw an expression  no-unused-expressions
+
+/Users/ryan/Code/src/github/Ryandaydev/swagger-ui/test/e2e-selenium/scenarios/operations/store.js
+  24:9  warning  Expected an assignment or function call and instead saw an expression  no-unused-expressions
+
+/Users/ryan/Code/src/github/Ryandaydev/swagger-ui/test/e2e-selenium/scenarios/operations/user.js
+  24:9  warning  Expected an assignment or function call and instead saw an expression  no-unused-expressions
+
+/Users/ryan/Code/src/github/Ryandaydev/swagger-ui/test/e2e-selenium/scenarios/schemeContainer.js
+  29:9  warning  Expected an assignment or function call and instead saw an expression  no-unused-expressions
+  36:9  warning  Expected an assignment or function call and instead saw an expression  no-unused-expressions
+
+/Users/ryan/Code/src/github/Ryandaydev/swagger-ui/test/e2e-selenium/scenarios/topbar.js
+  37:9  warning  Expected an assignment or function call and instead saw an expression  no-unused-expressions
+  42:9  warning  Expected an assignment or function call and instead saw an expression  no-unused-expressions
+  47:9  warning  Expected an assignment or function call and instead saw an expression  no-unused-expressions
+
+/Users/ryan/Code/src/github/Ryandaydev/swagger-ui/test/xss/anchor-target-rel/link.jsx
+  5:10  warning  'fromJS' is defined but never used  no-unused-vars
+
+/Users/ryan/Code/src/github/Ryandaydev/swagger-ui/test/xss/anchor-target-rel/markdown.jsx
+  60:10  warning  'withMarkdownWrapper' is defined but never used  no-unused-vars
+
+/Users/ryan/Code/src/github/Ryandaydev/swagger-ui/test/xss/anchor-target-rel/online-validator-badge.jsx
+  3:18  warning  'createSpy' is defined but never used  no-unused-vars
+  5:10  warning  'fromJS' is defined but never used     no-unused-vars
+  5:18  warning  'Map' is defined but never used        no-unused-vars
+
+✖ 135 problems (5 errors, 130 warnings)
+  0 errors, 2 warnings potentially fixable with the `--fix` option.
+
