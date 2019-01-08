@@ -52,9 +52,13 @@ export default class ModelExample extends React.Component {
           <button className="tablinks" data-name="example" onClick={ this.activeTab }>{isExecute ? "Edit Value" : "Example Value"}</button>
         </li>
         { schema ? <li className={ "tabitem" + ( this.state.activeTab === "model" ? " active" : "") }>
-          <button className={ "tablinks" + ( isExecute ? " inactive" : "" )} data-name="model" onClick={ this.activeTab }>
+<<<<<<< HEAD
+          <button className={ "tablinks" + ( isExecute ? " inactive" : "" )} data-name="model" onClick={ this.activeTab }>Model</button>
+=======
+          <a className={ "tablinks" + ( isExecute ? " inactive" : "" )} data-name="model" onClick={ this.activeTab }>
             {isOAS3 ? "Schema" : "Model" }
-          </button>
+          </a>
+>>>>>>> upstream/master
         </li> : null }
       </ul>
       <div>

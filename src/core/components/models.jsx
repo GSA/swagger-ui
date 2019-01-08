@@ -92,7 +92,7 @@ export default class Models extends Component {
               </span>
             </span>
 
-            return <div id={ `model-${name}` } className="model-container" key={ `models-section-${name}` } >
+            return <div id={ `model-${name}` } className="model-container" key={ `models-section-${name}` } tabIndex="0" onClick={() => ModelCollapse.handleToggle()}>
               <span className="models-jump-to-path"><JumpToPath specPath={specPath} /></span>
               <ModelCollapse
                 classes="model-box"
