@@ -27,7 +27,8 @@ export default class Models extends Component {
     if(isExpanded) {
       this.props.specActions.requestResolvedSubtree([...this.getSchemaBasePath(), name])
     }
-  }
+
+}
 
   render(){
     let { specSelectors, getComponent, layoutSelectors, layoutActions, getConfigs } = this.props
@@ -45,7 +46,7 @@ export default class Models extends Component {
     const JumpToPath = getComponent("JumpToPath")
 
     return <section className={ showModels ? "models is-open" : "models"} aria-label="Models">
-      <h2><div role="button" tabIndex={0} onKeyDown={() => layoutActions.show("models", !showModels)} onClick={() => layoutActions.show("models", !showModels)}>
+      <h2><div role="button" tabIndex={0} onKeyDown={(event) => {event.keyCode === 13 ? layoutActions.show("models", !showModels) : null }} onClick={() => layoutActions.show("models", !showModels)}>
         <span>{isOAS3 ? "Schemas" : "Models" }</span>
         <svg width="20" height="20" alt="Arrow">
           <use xlinkHref={showModels ? "#large-arrow-down" : "#large-arrow"} />
@@ -91,7 +92,7 @@ export default class Models extends Component {
               </span>
             </span>
 
-            return <div id={ `model-${name}` } className="model-container" key={ `models-section-${name}` }>
+            return <div id={ `model-${name}` } className="model-container" key={ `models-section-${name}` } >
               <span className="models-jump-to-path"><JumpToPath specPath={specPath} /></span>
               <ModelCollapse
                 classes="model-box"

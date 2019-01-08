@@ -114,12 +114,12 @@ class Parameters extends Component {
       <div className="opblock-section">
         <div className="opblock-section-header">
           <div className="tab-header">
-            <div role="button" tabIndex={0} onClick={() => this.toggleTab("parameters")} className={`tab-item ${this.state.parametersVisible && "active"}`}  onKeyDown={this.handleKeyDown} >
+            <div role="button" tabIndex={0} onClick={() => this.toggleTab("parameters")} className={`tab-item ${this.state.parametersVisible && "active"}`}  onKeyDown={(event) => {event.keyCode === 13 ? this.toggleTab("parameters") : null }} >
               <h4 className="opblock-title"><span>Parameters</span></h4>
             </div>
             { operation.get("callbacks") ?
               (
-                <div role="button" tabIndex={0} onClick={() => this.toggleTab("callbacks")} className={`tab-item ${this.state.callbackVisible && "active"}`}  onKeyDown={this.handleKeyDown} >
+                <div role="button" tabIndex={0} onClick={() => this.toggleTab("callbacks")} className={`tab-item ${this.state.callbackVisible && "active"}`}  onKeyDown={(event) => {event.keyCode === 13 ? this.toggleTab("callbacks") : null }} >
                   <h4 className="opblock-title"><span>Callbacks</span></h4>
                 </div>
               ) : null

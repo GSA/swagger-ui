@@ -60,7 +60,7 @@ export default class OperationTag extends React.Component {
 
         <h2><div role="button"
           tabIndex={0}
-          onKeyDown={() => layoutActions.show(isShownKey, !showTag)}
+          onKeyDown={(event) => {event.keyCode === 13 ? layoutActions.show(isShownKey, !showTag) : null }}
           onClick={() => layoutActions.show(isShownKey, !showTag)}
           className={!tagDescription ? "opblock-tag no-desc" : "opblock-tag" }
           id={isShownKey.join("-")}>
@@ -83,7 +83,7 @@ export default class OperationTag extends React.Component {
                       { tagExternalDocsUrl ?
                         <Link
                             href={sanitizeUrl(tagExternalDocsUrl)}
-                            onClick={(e) => e.stopPropagation()}
+                            
                             target="_blank"
                             >{tagExternalDocsUrl}</Link> : null
                           }
@@ -91,15 +91,15 @@ export default class OperationTag extends React.Component {
                 }
             </div>
 
-            <button
+            <div
               className="expand-operation"
               title={showTag ? "Collapse operation": "Expand operation"}
-              onClick={() => layoutActions.show(isShownKey, !showTag)}>
+              >
 
               <svg className="arrow" width="20" height="20">
                 <use href={showTag ? "#large-arrow-down" : "#large-arrow"} xlinkHref={showTag ? "#large-arrow-down" : "#large-arrow"} />
               </svg>
-            </button>
+            </div>
             </div>
         </h2 >
 
