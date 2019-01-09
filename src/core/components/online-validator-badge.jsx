@@ -18,8 +18,9 @@ export default class OnlineValidatorBadge extends React.Component {
         let { validatorUrl } = getConfigs()
         this.state = {
             url: this.getDefinitionUrl(),
-            validatorUrl: validatorUrl === undefined ? "https://online.swagger.io/validator" : validatorUrl
-        }
+            validatorUrl: validatorUrl === undefined ? "https://online.swagger.io/validator" : validatorUrl,
+            swaggerResponse: []
+          }
     }
 
     getDefinitionUrl = () => {
@@ -53,11 +54,12 @@ export default class OnlineValidatorBadge extends React.Component {
           return null
         }
 
+      {/* TODO: change image to 2 vars instead of 3 */}
         return (<span style={{ float: "right"}}>
-                <a target="_blank" rel="noopener noreferrer" href={`${ sanitizedValidatorUrl }/debug?url=${ encodeURIComponent(this.state.url) }`}>
-                    <ValidatorImage src={`${ sanitizedValidatorUrl }?url=${ encodeURIComponent(this.state.url) }`} />
+                <a target="_blank" rel="noopener noreferrer" href={`${ sanitizedValidatorUrl }/debug?url=${ encodeURIComponent(this.state.url) }`} root={`${ sanitizedValidatorUrl }`} url={`${ encodeURIComponent(this.state.url) }`} >
+                    <ValidatorImage src={`${ sanitizedValidatorUrl }?url=${ encodeURIComponent(this.state.url) }`} root={`${ sanitizedValidatorUrl }`} url={`${ encodeURIComponent(this.state.url) }`} />
                 </a>
-            </span>)
+            </span>)  
     }
 }
 
@@ -65,14 +67,18 @@ export default class OnlineValidatorBadge extends React.Component {
 class ValidatorImage extends React.Component {
   static propTypes = {
     src: PropTypes.string,
-    alt: PropTypes.string
+    alt: PropTypes.string,
+    root: PropTypes.string, /*ryan*/
+    url: PropTypes.string /*ryan*/
   }
 
   constructor(props) {
     super(props)
     this.state = {
       loaded: false,
-      error: false
+      error: false,
+      isLoaded: false,
+      APIresult: []    
     }
   }
 
@@ -89,9 +95,31 @@ class ValidatorImage extends React.Component {
       })
     }
     img.src = this.props.src
+
+
+    /* ryan */
+    fetch(this.props.root + "/debug?url=" + this.props.url)
+    .then(res => res.json())
+    .then(
+      (result) => {
+        this.setState({
+          isLoaded: true,
+          APIresult: JSON.stringify(result)
+      });
+    },
+    (error) => {
+      this.setState({
+        isLoaded: true,
+        error
+      })
+    }
+    )
+  
   }
 
   componentWillReceiveProps(nextProps) {
+
+
     if (nextProps.src !== this.props.src) {
       const img = new Image()
       img.onload = () => {
@@ -108,12 +136,78 @@ class ValidatorImage extends React.Component {
     }
   }
 
+ 
   render() {
+
     if (this.state.error) {
-      return <img alt={"Error"} />
+      return <img alt={ "Error"} />
     } else if (!this.state.loaded) {
       return null
     }
-    return <img src={this.props.src} alt={this.props.alt} />
+    return <img src={this.props.src} alt={this.getAltText()} />
+  }
+
+    getAltText() {
+      if(this.state.APIresult.toString() == "{}")
+        return "Specification file is valid"
+      else
+        return "Specification file is invalid"
+    }
+
+}
+
+      {/* TODO: get rid of this method */}
+class ValidatorText extends React.Component {
+  static propTypes = {
+    src: PropTypes.string,
+    root: PropTypes.string,
+    url: PropTypes.string
+  }
+  constructor(props) {
+    super(props)
+    this.state = {
+      error: null,
+      isLoaded: false,
+      APIresult: []
+    }
+  }
+
+
+componentDidMount(){
+  /*fetch("https://online.swagger.io/validator/debug?url=https://gsa.github.io/prototype-city-pairs-api-documentation/api-docs/console/citypairs")*/
+  fetch(this.props.root + "/debug?url=" + this.props.url)
+  .then(res => res.json())
+  .then(
+    (result) => {
+      this.setState({
+        isLoaded: true,
+        APIresult: JSON.stringify(result)
+    });
+  },
+  (error) => {
+    this.setState({
+      isLoaded: true,
+      error
+    })
+  }
+  )
+    
+
+}
+
+  render(){
+    const {error, isLoaded, APIresult } = this.state;
+      return(
+
+<span>Loaded state: {isLoaded.toString()} - Result: {APIresult.toString()} - URL: {this.props.root + "/debug?url=" + this.props.url} - GetAltText: { this.getAltText() }</span>
+
+      )
+  }
+
+  getAltText() {
+    if(this.state.APIresult.toString() == "{}")
+      return "Valid"
+    else
+      return "Invalid"
   }
 }
