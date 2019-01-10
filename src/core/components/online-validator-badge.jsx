@@ -54,12 +54,17 @@ export default class OnlineValidatorBadge extends React.Component {
           return null
         }
 
-      {/* TODO: change image to 2 vars instead of 3 */}
-        return (<span style={{ float: "right"}}>
-                <a target="_blank" rel="noopener noreferrer" href={`${ sanitizedValidatorUrl }/debug?url=${ encodeURIComponent(this.state.url) }`} root={`${ sanitizedValidatorUrl }`} url={`${ encodeURIComponent(this.state.url) }`} >
-                    <ValidatorImage src={`${ sanitizedValidatorUrl }?url=${ encodeURIComponent(this.state.url) }`} root={`${ sanitizedValidatorUrl }`} url={`${ encodeURIComponent(this.state.url) }`} />
+        return (<div style={{ float: "right"}}>
+        <span>
+                    <ValidatorImage root={`${ sanitizedValidatorUrl }`} url={`${ encodeURIComponent(this.state.url) }`} />
+                    </span>
+                    <span style={{ display:"block" }}>
+                    <a target="_blank" rel="noopener noreferrer" href={`${ sanitizedValidatorUrl }/debug?url=${ encodeURIComponent(this.state.url) }`} >
+                    Validate
                 </a>
-            </span>)  
+                
+            </span>
+            </div>)  
     }
 }
 
@@ -77,6 +82,7 @@ class ValidatorImage extends React.Component {
     this.state = {
       loaded: false,
       error: false,
+      debugError: false,
       isLoaded: false,
       APIresult: []    
     }
@@ -94,10 +100,10 @@ class ValidatorImage extends React.Component {
         error: true
       })
     }
-    img.src = this.props.src
+    /* img.src = this.props.src */
+    img.src = this.props.root + "?url=" + this.props.url;
 
 
-    /* ryan */
     fetch(this.props.root + "/debug?url=" + this.props.url)
     .then(res => res.json())
     .then(
@@ -110,7 +116,7 @@ class ValidatorImage extends React.Component {
     (error) => {
       this.setState({
         isLoaded: true,
-        error
+        debugError: true
       })
     }
     )
@@ -120,7 +126,7 @@ class ValidatorImage extends React.Component {
   componentWillReceiveProps(nextProps) {
 
 
-    if (nextProps.src !== this.props.src) {
+    if (nextProps.root !== this.props.root || nextProps.url !== this.props.url) {
       const img = new Image()
       img.onload = () => {
         this.setState({
@@ -132,7 +138,7 @@ class ValidatorImage extends React.Component {
           error: true
         })
       }
-      img.src = nextProps.src
+      img.src = nextProps.root + "?url=" + nextProps.url
     }
   }
 
@@ -144,70 +150,19 @@ class ValidatorImage extends React.Component {
     } else if (!this.state.loaded) {
       return null
     }
-    return <img src={this.props.src} alt={this.getAltText()} />
+    return <img src={this.props.root + "?url=" + this.props.url} alt={this.getAltText()} />
   }
 
     getAltText() {
+      if (this.state.debugError == true)
+      {
+        return "Specification status unknown"
+      }
+      else
       if(this.state.APIresult.toString() == "{}")
         return "Specification file is valid"
       else
         return "Specification file is invalid"
     }
 
-}
-
-      {/* TODO: get rid of this method */}
-class ValidatorText extends React.Component {
-  static propTypes = {
-    src: PropTypes.string,
-    root: PropTypes.string,
-    url: PropTypes.string
-  }
-  constructor(props) {
-    super(props)
-    this.state = {
-      error: null,
-      isLoaded: false,
-      APIresult: []
-    }
-  }
-
-
-componentDidMount(){
-  /*fetch("https://online.swagger.io/validator/debug?url=https://gsa.github.io/prototype-city-pairs-api-documentation/api-docs/console/citypairs")*/
-  fetch(this.props.root + "/debug?url=" + this.props.url)
-  .then(res => res.json())
-  .then(
-    (result) => {
-      this.setState({
-        isLoaded: true,
-        APIresult: JSON.stringify(result)
-    });
-  },
-  (error) => {
-    this.setState({
-      isLoaded: true,
-      error
-    })
-  }
-  )
-    
-
-}
-
-  render(){
-    const {error, isLoaded, APIresult } = this.state;
-      return(
-
-<span>Loaded state: {isLoaded.toString()} - Result: {APIresult.toString()} - URL: {this.props.root + "/debug?url=" + this.props.url} - GetAltText: { this.getAltText() }</span>
-
-      )
-  }
-
-  getAltText() {
-    if(this.state.APIresult.toString() == "{}")
-      return "Valid"
-    else
-      return "Invalid"
-  }
 }
