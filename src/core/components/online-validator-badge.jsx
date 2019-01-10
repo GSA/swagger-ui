@@ -18,8 +18,9 @@ export default class OnlineValidatorBadge extends React.Component {
         let { validatorUrl } = getConfigs()
         this.state = {
             url: this.getDefinitionUrl(),
-            validatorUrl: validatorUrl === undefined ? "https://online.swagger.io/validator" : validatorUrl
-        }
+            validatorUrl: validatorUrl === undefined ? "https://online.swagger.io/validator" : validatorUrl,
+            swaggerResponse: []
+          }
     }
 
     getDefinitionUrl = () => {
@@ -53,11 +54,17 @@ export default class OnlineValidatorBadge extends React.Component {
           return null
         }
 
-        return (<span style={{ float: "right"}}>
-                <a target="_blank" rel="noopener noreferrer" href={`${ sanitizedValidatorUrl }/debug?url=${ encodeURIComponent(this.state.url) }`}>
-                    <ValidatorImage src={`${ sanitizedValidatorUrl }?url=${ encodeURIComponent(this.state.url) }`} />
+        return (<div style={{ float: "right"}}>
+        <span>
+                    <ValidatorImage root={`${ sanitizedValidatorUrl }`} url={`${ encodeURIComponent(this.state.url) }`} />
+                    </span>
+                    <span style={{ display:"block" }}>
+                    <a target="_blank" rel="noopener noreferrer" href={`${ sanitizedValidatorUrl }/debug?url=${ encodeURIComponent(this.state.url) }`} >
+                    Validate
                 </a>
-            </span>)
+                
+            </span>
+            </div>)  
     }
 }
 
@@ -65,14 +72,19 @@ export default class OnlineValidatorBadge extends React.Component {
 class ValidatorImage extends React.Component {
   static propTypes = {
     src: PropTypes.string,
-    alt: PropTypes.string
+    alt: PropTypes.string,
+    root: PropTypes.string, /*ryan*/
+    url: PropTypes.string /*ryan*/
   }
 
   constructor(props) {
     super(props)
     this.state = {
       loaded: false,
-      error: false
+      error: false,
+      debugError: false,
+      isLoaded: false,
+      APIresult: []    
     }
   }
 
@@ -88,11 +100,33 @@ class ValidatorImage extends React.Component {
         error: true
       })
     }
-    img.src = this.props.src
+    /* img.src = this.props.src */
+    img.src = this.props.root + "?url=" + this.props.url;
+
+
+    fetch(this.props.root + "/debug?url=" + this.props.url)
+    .then(res => res.json())
+    .then(
+      (result) => {
+        this.setState({
+          isLoaded: true,
+          APIresult: JSON.stringify(result)
+      });
+    },
+    (error) => {
+      this.setState({
+        isLoaded: true,
+        debugError: true
+      })
+    }
+    )
+  
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.src !== this.props.src) {
+
+
+    if (nextProps.root !== this.props.root || nextProps.url !== this.props.url) {
       const img = new Image()
       img.onload = () => {
         this.setState({
@@ -104,16 +138,31 @@ class ValidatorImage extends React.Component {
           error: true
         })
       }
-      img.src = nextProps.src
+      img.src = nextProps.root + "?url=" + nextProps.url
     }
   }
 
+ 
   render() {
+
     if (this.state.error) {
-      return <img alt={"Error"} />
+      return <img alt={ "Error"} />
     } else if (!this.state.loaded) {
       return null
     }
-    return <img src={this.props.src} alt={this.props.alt} />
+    return <img src={this.props.root + "?url=" + this.props.url} alt={this.getAltText()} />
   }
+
+    getAltText() {
+      if (this.state.debugError == true)
+      {
+        return "Specification status unknown"
+      }
+      else
+      if(this.state.APIresult.toString() == "{}")
+        return "Specification file is valid"
+      else
+        return "Specification file is invalid"
+    }
+
 }
