@@ -18,7 +18,6 @@ export default class OperationSummaryPath extends PureComponent{
       operationProps,
     } = this.props
 
-
     let {
       deprecated,
       isShown,
