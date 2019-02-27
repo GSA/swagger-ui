@@ -63,7 +63,8 @@ export default class ModelCollapse extends Component {
 
     if(this.state.expanded ) {
       if(this.props.hideSelfOnExpand) {
-        return <span className={classes || ""}>
+        /* return <span className={classes || ""}> */
+        return <span role="button" tabIndex={0} className={classes || ""} onClick={this.toggleCollapsed} onKeyDown={(event) => {event.keyCode === 13 ? this.toggleCollapsed(): null }}>
           {this.props.children}
         </span>
       }
