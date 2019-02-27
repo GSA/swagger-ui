@@ -15,11 +15,11 @@ export default class AuthorizationPopup extends React.Component {
 
     return (
       <div className="dialog-ux">
-        <div tabIndex="-1" className="backdrop-ux"></div>
+        <div className="backdrop-ux"></div>
         <div className="modal-ux">
           <div className="modal-dialog-ux">
             <div className="modal-ux-inner">
-              <div tabIndex="0" className="modal-ux-header">
+              <div className="modal-ux-header">
                 <h3>Available authorizations</h3>
                 <button type="button" className="close-modal" onClick={ this.close }>
                   <svg width="20" height="20">
