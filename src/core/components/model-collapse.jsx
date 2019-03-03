@@ -69,14 +69,13 @@ export default class ModelCollapse extends Component {
       }
     }
 
-    return (
-      <span role="button" tabIndex={0} className={classes || ""} onClick={this.toggleCollapsed} onKeyDown={(event) => {event.keyCode === 13 ? this.toggleCollapsed(): null }}>
-        {/* } { title && <span role="button" tabIndex={0} onKeyDown={(event) => {event.keyCode === 13 ? this.toggleCollapsed : alert("test") }} onClick={this.toggleCollapsed} style={{ "cursor": "pointer" }}>{title}</span> } {*/}
-        { title && <span >{title}</span> } 
-       {/*} <span role="button" aria-label="Show or hide model" tabIndex={0} onKeyDown={(event) => {event.keyCode === 13 ? this.toggleCollapsed : null }} onClick={ this.toggleCollapsed } style={{ "cursor": "pointer" }}> {*/}
-        <span >
-       
+return (
+      <span className={classes || ""}>
+       <span role="button" tabIndex={0} id="Another_span" onClick={this.toggleCollapsed} onKeyDown={(event) => {event.keyCode === 13 ? this.toggleCollapsed(): null }}>
+        { title && <span style={{ "cursor": "pointer" }}>{title}</span> }
+        <span style={{ "cursor": "pointer" }}>
           <span className={ "model-toggle" + ( this.state.expanded ? "" : " collapsed" ) }></span>
+        </span>
         </span>
         { this.state.expanded ? this.props.children :this.state.collapsedContent }
       </span>

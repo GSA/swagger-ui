@@ -42,7 +42,7 @@ module.exports = function SwaggerUI(opts) {
     custom: {},
     displayOperationId: false,
     displayRequestDuration: false,
-    deepLinking: false,
+    deepLinking: true,
     requestInterceptor: (a => a),
     responseInterceptor: (a => a),
     showMutatedRequest: true,

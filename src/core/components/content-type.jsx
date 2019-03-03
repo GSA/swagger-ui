@@ -47,7 +47,7 @@ export default class ContentType extends React.Component {
 
     return (
       <div className={ "content-type-wrapper " + ( className || "" ) }>
-        <select className="content-type" defaultValue={value || ""} onBlur={this.onBlurWrapper} >
+        <select aria-label="Content type" className="content-type" defaultValue={value || ""} onBlur={this.onBlurWrapper} >
           { contentTypes.map( (val) => {
             return <option key={ val } value={ val }>{ val }</option>
           }).toArray()}
