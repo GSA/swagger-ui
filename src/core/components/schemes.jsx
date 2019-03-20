@@ -42,7 +42,7 @@ export default class Schemes extends React.Component {
     return (
       <label>
         <span className="schemes-title">Schemes</span>
-        <select aria-label="Schemes" onBlur={ this.onBlur } value={currentScheme}>
+        <select aria-label="Schemes" onBlur={ this.onBlur } defaultValue={currentScheme}>
           { schemes.valueSeq().map(
             ( scheme ) => <option value={ scheme } key={ scheme }>{ scheme }</option>
           ).toArray()}

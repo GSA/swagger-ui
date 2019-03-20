@@ -30,8 +30,8 @@ export default class OperationSummaryPath extends PureComponent{
     const DeepLink = getComponent( "DeepLink" )
 
     return(
-      <span aria-label="Operation Path" className={ deprecated ? "opblock-summary-path__deprecated" : "opblock-summary-path" } >
-              <DeepLink
+      <span aria-label="Operation path" className={ deprecated ? "opblock-summary-path__deprecated" : "opblock-summary-path" } >
+              <DeepLink 
                   enabled={isDeepLinkingEnabled}
                   isShown={isShown}
                   path={createDeepLinkPath(`${tag}/${operationId}`)}
