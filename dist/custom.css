@@ -1,5 +1,4 @@
 span .opblock-summary-method, .btn.authorize, .topbar a, .info .title small pre, .parameter__in, .download-url-button {color: #000 !important}
-.swagger-ui a.link {
+a.link {
     color: #18559A;
-    text-decoration: underline !important;
 }
