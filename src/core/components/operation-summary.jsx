@@ -67,7 +67,7 @@ export default class OperationSummary extends PureComponent {
           </div>
           
         {!showSummary ? null :
-          <div aria-label={`Operation description: ${resolvedSummary || summary}`} className="opblock-summary-description" >
+          <div aria-label={`Operation description: ${resolvedSummary || summary}`} className="opblock-summary-description" tabIndex={0}>
             {resolvedSummary || summary}
           </div>
         }
