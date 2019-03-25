@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import { Iterable } from "immutable"
 
 export default class OperationSummaryMethod extends PureComponent {
-
+  
   static propTypes = {
     operationProps: PropTypes.instanceOf(Iterable).isRequired,
     method: PropTypes.string.isRequired,
@@ -19,7 +19,7 @@ export default class OperationSummaryMethod extends PureComponent {
     } = this.props
 
     return (
-      <span className="opblock-summary-method" role="button" aria-label="Operation Method">{method.toUpperCase()}</span>
+      <span className={`opblock-summary-method opblock-summary-${method}`} role="button" aria-label={`Method: ${method.toUpperCase()}`}>{method.toUpperCase()}</span>
     )
   }
 }

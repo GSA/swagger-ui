@@ -71,7 +71,7 @@ export default class ModelCollapse extends Component {
 
 return (
       <span className={classes || ""}>
-       <span role="button" tabIndex={0} onClick={this.toggleCollapsed} onKeyDown={(event) => {event.keyCode === 13 ? this.toggleCollapsed(): null }}>
+       <span role="button" tabIndex={0} id="Another_span" onClick={this.toggleCollapsed} onKeyDown={(event) => {event.keyCode === 13 ? this.toggleCollapsed(): null }}>
         { title && <span style={{ "cursor": "pointer" }}>{title}</span> }
         <span style={{ "cursor": "pointer" }}>
           <span className={ "model-toggle" + ( this.state.expanded ? "" : " collapsed" ) }></span>
