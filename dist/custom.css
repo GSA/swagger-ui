@@ -2,3 +2,13 @@ span .opblock-summary-method, .btn.authorize, .topbar a, .info .title small pre,
 a.link {
     color: #18559A;
 }
+/* this section is not accessible so removing it */
+button.authorization__btn {
+    display: none;
+}
+
+/* this link is not working so removing it */
+
+div.information-container a.link {
+    display:none;
+}

@@ -97,6 +97,7 @@ export default class OperationTag extends React.Component {
               >
 
               <svg className="arrow" width="20" height="20">
+                <title>arrow</title>
                 <use href={showTag ? "#large-arrow-down" : "#large-arrow"} xlinkHref={showTag ? "#large-arrow-down" : "#large-arrow"} />
               </svg>
             </div>
