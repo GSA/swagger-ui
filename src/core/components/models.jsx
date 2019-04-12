@@ -48,7 +48,8 @@ export default class Models extends Component {
     return <section className={ showModels ? "models is-open" : "models"} aria-label="Models">
       <h2><div role="button" tabIndex={0} onKeyDown={(event) => {event.keyCode === 13 ? layoutActions.show("models", !showModels) : null }} onClick={() => layoutActions.show("models", !showModels)}>
         <span>{isOAS3 ? "Schemas" : "Models" }</span>
-        <svg width="20" height="20" alt="Arrow">
+        <svg width="20" height="20" role="img" aria-label={showModels ? "larger arrow down" : "large arrow"}>
+          <title>{showModels ? "larger arrow down" : "large arrow"}</title>
           <use xlinkHref={showModels ? "#large-arrow-down" : "#large-arrow"} />
         </svg>
         </div>
