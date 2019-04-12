@@ -6,7 +6,8 @@ export const DeepLink = ({ enabled, path, text }) => {
         <a className="nostyle"
           onClick={enabled ? (e) => e.preventDefault() : null}
           onKeyDown={(e) => {e.keyCode === 13 ? e.preventDefault() : null }}
-          href={enabled ? `#/${path}` : null}>
+          href={enabled ? `#/${path}` : null}
+          tabIndex="-1">
           <span>{text}</span>
         </a>
     )
