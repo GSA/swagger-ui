@@ -103,8 +103,7 @@ export default class Servers extends React.Component {
 
     return (
       <div className="servers">
-        <label htmlFor="servers">
-          <select onBlur={ this.onServerChange }>
+          <select aria-label="Servers" onBlur={ this.onServerChange }>
             { servers.valueSeq().map(
               ( server ) =>
               <option
@@ -115,7 +114,6 @@ export default class Servers extends React.Component {
               </option>
             ).toArray()}
           </select>
-        </label>
         { shouldShowVariableUI ?
           <div>
 
