@@ -39,6 +39,7 @@
     .opblock-summary-method
     {
         background: $color;
+        cursor: pointer;
     }
 
     .opblock-summary
@@ -281,8 +282,6 @@
         align-items: center;
 
         padding: 5px;
-
-        cursor: pointer;
 
         .view-line-link
         {
