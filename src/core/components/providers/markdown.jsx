@@ -11,6 +11,7 @@ DomPurify.addHook("beforeSanitizeElements", function (current, ) {
   // but applying it more broadly shouldn't hurt anything, and is safer.
   if (current.href) {
     current.setAttribute("rel", "noopener noreferrer")
+    current.setAttribute("aria-label", current.textContent + " (new window)")
   }
   return current
 })
