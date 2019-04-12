@@ -82,10 +82,10 @@ export default class LiveResponse extends React.Component {
         <h4>Server response</h4>
         <table className="responses-table live-responses-table">
           <thead>
-          <th className="responses-header">
-            <td className="col col_header response-col_status">Code</td>
-            <td className="col col_header response-col_description">Details</td>
-          </th>
+          <tr className="responses-header">
+            <th className="col col_header response-col_status">Code</th>
+            <th className="col col_header response-col_description">Details</th>
+          </tr>
           </thead>
           <tbody>
             <tr className="response">
