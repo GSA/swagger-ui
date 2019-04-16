@@ -88,7 +88,7 @@ export class InfoUrl extends React.PureComponent {
 
     const Link = getComponent("Link")
 
-    return <Link target="_blank" href={ sanitizeUrl(url) }><span className="url"> { url } </span></Link>
+    return <Link href={ sanitizeUrl(url) }><span className="url"> { url } </span></Link>
   }
 }
 
@@ -121,9 +121,9 @@ export default class Info extends React.Component {
     return (
       <div className="info">
         <hgroup className="main">
-          <h1 className="title" >{ title }
+          <h2 className="title" >{ title }
             { version && <VersionStamp version={version}></VersionStamp> }
-          </h1>
+          </h2>
           { host || basePath ? <InfoBasePath host={ host } basePath={ basePath } /> : null }
           { url && <InfoUrl getComponent={getComponent} url={url} /> }
         </hgroup>
